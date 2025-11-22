@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma'; // Ajuste o caminho do seu prisma client
+import { PrismaClient } from '@prisma/client/extension';
+
+const prisma = new PrismaClient();
 
 export async function GET(
   request: Request,
