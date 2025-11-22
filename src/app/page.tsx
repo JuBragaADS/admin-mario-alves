@@ -50,6 +50,7 @@ export default function Home() {
 
   return (
     <main className="max-w-screen-xl flex flex-col items-center mx-auto p-6">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="./vermelho.png"
         alt="Biblioteca"

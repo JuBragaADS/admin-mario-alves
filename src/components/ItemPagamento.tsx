@@ -1,6 +1,5 @@
 'use client'
-import { Dispatch, SetStateAction, useEffect } from "react"
-import Cookies from "js-cookie"
+import { Dispatch, SetStateAction } from "react"
 import { PagamentoI } from "@/utils/types/pagamentos"
 
 interface listaPagamentoProps {
@@ -9,7 +8,7 @@ interface listaPagamentoProps {
   setPagamentos: Dispatch<SetStateAction<PagamentoI[]>>
 }
 
-function ItemPagamento({ pagamento, pagamentos, setPagamentos }: listaPagamentoProps) {
+function ItemPagamento({ pagamento }: listaPagamentoProps) {
 
 
   return (

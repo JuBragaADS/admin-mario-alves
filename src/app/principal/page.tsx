@@ -3,11 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-interface livrosReservaI {
-  categoria: string; // Pode ser "Livro", "Cliente", "Reserva" ou "Comentário"
-  num: number;
-}
-
 interface geralDadosI {
   usuarios: number;
   livros: number;
@@ -15,10 +10,7 @@ interface geralDadosI {
   emprestimos: number;
 }
 
-type DataRow = [string, number, string];
-
 export default function Principal() {
-  const [livrosReserva, setLivrosReserva] = useState<livrosReservaI[]>([]);
   const [dados, setDados] = useState<geralDadosI>({} as geralDadosI);
 
   useEffect(() => {
@@ -28,54 +20,14 @@ export default function Principal() {
       setDados(dados);
     }
     getDadosGerais();
-
-    async function getDadosGrafico() {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_URL_API}/dashboard/livrosReserva`
-      );
-      const dados = await response.json();
-      setLivrosReserva(dados);
-    }
-    getDadosGrafico();
   }, []);
-
-  const data: (["Categoria", "Quantidade", { role: string }] | DataRow)[] = [
-    ["Categoria", "Quantidade", { role: "style" }],
-  ];
 
   const cores = [
     "red",
     "blue",
     "violet",
     "green",
-    "gold",
-    "cyan",
-    "chocolate",
-    "purple",
-    "brown",
-    "orangered",
   ];
-
-  // Adicione as categorias ao array data
-  data.push(["Livros", dados.livros, cores[0]]);
-  data.push(["Usuarios", dados.usuarios, cores[1]]);
-  data.push(["Reservas", dados.reservas, cores[2]]);
-  data.push(["emprestimos", dados.emprestimos, cores[3]]);
-
-  const options = {
-    is3D: true, // Ativando o modo 3D
-    title: "Controle de Livros, Usuarios, Reservas e Emprestmos",
-    chartArea: { width: "80%", height: "70%" },
-    legend: {
-      position: "bottom", // Colocando os nomes embaixo do gráfico
-    },
-    hAxis: {
-      title: "Categoria",
-    },
-    vAxis: {
-      title: "Quantidade",
-    },
-  };
 
   return (
     <div className="container mt-24 mx-auto p-4">

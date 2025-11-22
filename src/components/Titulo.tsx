@@ -17,6 +17,7 @@ export function Titulo() {
     <nav className="bg-white border-gray-200 dark:bg-gray-900 flex flex-wrap justify-between fixed top-0 left-0 w-full z-50 border-b">
       <div className="flex flex-wrap justify-between max-w-screen-xl p-4" >
         <Link href="/principal" className="flex items-center space-x-3 rtl:space-x-reverse">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/vermelho.png" className="h-16" alt="IMA" />
           <span className="self-center text-3xl font-semibold whitespace-nowrap text-dark">
             Administrador

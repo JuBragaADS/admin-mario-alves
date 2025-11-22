@@ -32,12 +32,6 @@ function NovoUsuario() {
     setFocus("nome");
   }, [setFocus]);
 
-  const optionsUsuario = usuarios.map((usuario: UsuarioI) => (
-    <option key={usuario.id} value={usuario.id}>
-      {usuario.nome}
-    </option>
-  ));
-
   async function incluirUsuario( dados : Entradas ) {
     const novoUsuario : Entradas = {
       nome: dados . nome,

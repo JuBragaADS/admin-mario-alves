@@ -22,28 +22,38 @@ function NovoLivro() {
   const [autores, setAutores] = useState<AutorI[]>([]);
   const [generos, setGeneros] = useState<GeneroI[]>([]);
   const [editoras, setEditoras] = useState<EditoraI[]>([]);
-  const [livroId, setLivroId] = useState<number | null>(null);
 
   const { register, handleSubmit, reset, setFocus } = useForm<Inputs>();
 
   useEffect(() => {
-    async function fetchData(endpoint: string, setData: Function) {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/${endpoint}`);
+    async function fetchAutores() {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/autores`);
       const dados = await response.json();
-      setData(dados);
+      setAutores(dados);
+    }
+
+    async function fetchGeneros() {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/generos`);
+      const dados = await response.json();
+      setGeneros(dados);
+    }
+
+    async function fetchEditoras() {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/editoras`);
+      const dados = await response.json();
+      setEditoras(dados);
     }
 
     // Carrega os selects
-    fetchData("autores", setAutores);
-    fetchData("generos", setGeneros);
-    fetchData("editoras", setEditoras);
+    fetchAutores();
+    fetchGeneros();
+    fetchEditoras();
 
-    setLivroId(null);
     setFocus("titulo");
-  }, [reset, setFocus]);
+  }, [setFocus]);
 
   async function salvarLivro(data: Inputs) {
-    const { id, ...dadosParaEnviar } = data;
+    const { ...dadosParaEnviar } = data;
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/livros`, {
       method: "POST",

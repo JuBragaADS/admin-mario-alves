@@ -1,7 +1,6 @@
 'use client'
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { TiDeleteOutline } from "react-icons/ti"
-import { FaRegStar } from "react-icons/fa"
 import Cookies from "js-cookie"
 import { UsuarioI } from "@/utils/types/usuarios"
 import {mensalidadeExpirou} from '@/utils/datas'

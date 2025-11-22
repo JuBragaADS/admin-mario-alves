@@ -1,15 +1,10 @@
 "use client"
 import Cookies from "js-cookie"
 import { useRouter } from "next/navigation"
-import { IoExitOutline } from "react-icons/io5"
-import { BiSolidDashboard } from "react-icons/bi"
-import { FaCarSide, FaRegMoneyBill1, FaUsers } from "react-icons/fa6"
-import { BsCashCoin } from "react-icons/bs"
+import { FaUsers } from "react-icons/fa6"
 import Link from "next/link"
 import { MdAdminPanelSettings } from "react-icons/md"
 import { FaBookReader } from "react-icons/fa"
-import { FaBook } from "react-icons/fa";
-import { FaRegCommentDots } from "react-icons/fa6";
 import { ImExit } from "react-icons/im";
 import { FaAddressBook } from "react-icons/fa";
 import { GiMoneyStack } from "react-icons/gi"

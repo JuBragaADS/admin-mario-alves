@@ -1,6 +1,4 @@
 'use client';
-import { useEffect, useState } from "react"
-
 
 const EditarLivro = ({id}: {id: number}) => { 
     // 1 atraves do id do livro recebido pelas propriedades do componente

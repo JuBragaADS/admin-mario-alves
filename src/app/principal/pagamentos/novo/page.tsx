@@ -4,7 +4,6 @@ import Cookies from "js-cookie"
 import { toast } from "sonner"
 import { useState, useEffect } from "react"
 import { UsuarioI } from "@/utils/types/usuarios"
-import { PagamentoI } from "@/utils/types/pagamentos"
 import Link from "next/link"
 
 type Inputs = {
@@ -25,7 +24,7 @@ function NovoPagamento() {
     { valor: 'CARTAO_DEBITO', nome: 'Cartão de Débito' }
   ]
   useEffect(() => {
-    async function fetchData(endpoint: string, setData: Function) {
+    async function fetchData(endpoint: string, setData: (data: UsuarioI[]) => void) {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/${endpoint}`);
       const dados = await response.json();
       setData(dados);
@@ -34,7 +33,7 @@ function NovoPagamento() {
     fetchData("usuarios", setUsuarios);
 
     setFocus("usuarioId");
-  }, []);
+  }, [setFocus]);
 
   async function incluirPagamento(data: Inputs) {
     const dados = {

@@ -1,10 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
-import { GeneroI } from "@/utils/types/generos";
 
 type CamposGenero = {
   tipo: string;
@@ -15,7 +14,7 @@ function NovoGenero() {
 
   useEffect(() => {
     setFocus("tipo");
-  }, []);
+  }, [setFocus]);
 
   async function incluirGenero(data: CamposGenero) {
     const novoGenero: CamposGenero = {

@@ -1,11 +1,9 @@
 "use client";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FaPencilAlt, FaRegStar } from "react-icons/fa";
 import Cookies from "js-cookie";
 import { LivroI } from "@/utils/types/livros";
-import { useRouter } from "next/navigation";
-import Link from "next/link"; // Link não é mais usado para editar, mas pode ser usado em outro lugar
+import Link from "next/link";
 
 interface listaLivroProps {
   livro: LivroI;
@@ -14,7 +12,6 @@ interface listaLivroProps {
 }
 
 function ItemLivro({ livro, onDelete, onDestacar }: listaLivroProps) {
-  const router = useRouter();
 
   async function excluirLivro(id: number) {
     if (confirm(`Confirma a exclusão`)) {
@@ -74,6 +71,7 @@ function ItemLivro({ livro, onDelete, onDestacar }: listaLivroProps) {
           className="block group bg-white dark:bg-gray-800 min-h-[750px]"
         >
             <div className="aspect-[2/3] bg-gray-100 rounded-md overflow-hidden mb-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={livro.foto}
                 alt={`Capa do Livro: ${livro.titulo}`}

@@ -1,10 +1,9 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import Link from 'next/link'
 import { useForm } from "react-hook-form"
 import Cookies from "js-cookie"
 import { toast } from "sonner"
-import { EditoraI } from "@/utils/types/editoras"
 
 type CamposEditora = {
 
@@ -22,7 +21,7 @@ function NovoEditora() {
      
        useEffect(() => {
          setFocus("nome")
-       }, [])
+       }, [setFocus])
      
        async function incluirEditora(data: CamposEditora) {
      
