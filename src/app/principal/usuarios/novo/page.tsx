@@ -3,8 +3,7 @@
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { toast } from "sonner";
-import { useState, useEffect } from "react";
-import { UsuarioI } from "@/utils/types/usuarios";
+import { useEffect } from "react";
 import Link from "next/link";
 
 type Entradas = {

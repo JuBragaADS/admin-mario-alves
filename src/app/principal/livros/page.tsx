@@ -57,7 +57,7 @@ function CadLivros() {
   const listaLivros = livros.map((livro) => (
     <ItemLivro
       key={livro.id}
-      onDestacar={(id: number) => {
+      onDestacar={() => {
         toast.success("Livro destacado com sucesso!!")
       }}
 
