@@ -8,10 +8,8 @@ import { toast } from 'sonner';
 
 function ListaDeEmprestimos() {
   const [emprestimos, setEmprestimos] = useState<EmprestimoI[]>([]);
-  const [carregando, setCarregando] = useState(true);
 
   async function getEmprestimos() {
-    setCarregando(true);
 
     try {
       const response = await fetch(
@@ -23,14 +21,13 @@ function ListaDeEmprestimos() {
       console.error("Erro ao buscar empréstimos:", error);
     }
 
-    setCarregando(false);
   }
 
   useEffect(() => {
     getEmprestimos();
   }, []);
 
-  const onEntregar = async (id: number) => {
+  const onEntregar = async (id: string | number) => {
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_URL_API}/emprestimos/${id}/retorno`

@@ -20,7 +20,7 @@ type EmprestimoI = {
   }
 };
 
-const ItemEmprestimo = ({ emprestimo, onEntregue }: { emprestimo: EmprestimoI, onEntregue: any }) => {
+const ItemEmprestimo = ({ emprestimo, onEntregue }: { emprestimo: EmprestimoI, onEntregue: (id: string | number) => void }) => {
   const marcarComoEntregue = () => {
     onEntregue(emprestimo.id)
   }

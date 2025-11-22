@@ -5,6 +5,11 @@ import { FaRegStar } from "react-icons/fa"
 import Cookies from "js-cookie"
 import { UsuarioI } from "@/utils/types/usuarios"
 import {mensalidadeExpirou} from '@/utils/datas'
+
+interface PagamentoI {
+  dataPagamento: Date;
+  [key: string]: unknown;
+}
 interface listaUsuarioProps {
   usuario: UsuarioI,
   usuarios: UsuarioI[],
@@ -12,7 +17,7 @@ interface listaUsuarioProps {
 }
 
 function ItemUsuario({ usuario, usuarios, setUsuarios }: listaUsuarioProps) {
-  const [pagamentos, setPagamentos] = useState<any[]>([])
+  const [pagamentos, setPagamentos] = useState<PagamentoI[]>([])
   async function excluirUsuario() {
 
     if (confirm(`Confirma a exclusão`)) {

@@ -13,7 +13,6 @@ type CamposEditora = {
 }
 
 function NovoEditora() {
-    const [livros, setLivros] = useState<EditoraI[]>([])
     const {
          register,
          handleSubmit,

@@ -9,8 +9,8 @@ import Link from "next/link"; // Link não é mais usado para editar, mas pode s
 
 interface listaLivroProps {
   livro: LivroI;
-  onDelete: any;
-  onDestacar: any;
+  onDelete: (id: number) => void;
+  onDestacar: (id: number) => void;
 }
 
 function ItemLivro({ livro, onDelete, onDestacar }: listaLivroProps) {

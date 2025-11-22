@@ -11,7 +11,6 @@ type CamposGenero = {
 };
 
 function NovoGenero() {
-  const [livros, setLivros] = useState<GeneroI[]>([]);
   const { register, handleSubmit, reset, setFocus } = useForm<CamposGenero>();
 
   useEffect(() => {

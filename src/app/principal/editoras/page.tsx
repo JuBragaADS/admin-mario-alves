@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react"
 import Link from 'next/link'
 import { EditoraI } from "@/utils/types/editoras"
-import { userAgent } from "next/server"
-
 
 
 function Editoras() {

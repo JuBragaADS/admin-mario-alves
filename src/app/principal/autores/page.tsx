@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react"
 import Link from 'next/link'
 import { AutorI } from "@/utils/types/autores"
-import { userAgent } from "next/server"
-
 
 
 function Autores() {

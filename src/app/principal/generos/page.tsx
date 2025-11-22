@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react"
 import Link from 'next/link'
 import { GeneroI } from "@/utils/types/generos"
-import { userAgent } from "next/server"
-
 
 
 function Generos() {

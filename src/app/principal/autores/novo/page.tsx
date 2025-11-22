@@ -14,7 +14,6 @@ type CamposAutor = {
 }
 
 function NovoAutor() {
-  const [livros, setLivros] = useState<AutorI[]>([]);
   const { register, handleSubmit, reset, setFocus } = useForm<CamposAutor>();
 
   useEffect(() => {
