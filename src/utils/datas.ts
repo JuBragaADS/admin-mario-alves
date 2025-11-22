@@ -6,7 +6,7 @@ const verificaData = (data : string) => {
   return dataVerificada >= hoje;
 }
 
-const mensalidadeExpirou = (data : string) => {
+const mensalidadeExpirou = (data : Date) => {
   const hoje = new Date();
   const dataVerificada = new Date(data);
   const umMesAtras = sub(hoje, { months: 1 });
