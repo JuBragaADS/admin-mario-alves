@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client/extension';
 
 const prisma = new PrismaClient();
 
-export async function Disponibilidade(
+export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
