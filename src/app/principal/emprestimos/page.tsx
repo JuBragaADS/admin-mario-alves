@@ -39,26 +39,36 @@ function EmprestimosForm() {
   const watchedDataRetirada = useWatch({ control, name: "dataRetirada" });
   const watchedUsuarioId = useWatch({ control, name: "usuarioId" });
 
-  useEffect(() => {
-    async function fetchData(endpoint: string, setData: Function) {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_URL_API}/${endpoint}`
-        );
-        setData(response.data);
-      } catch (error) {
-        console.error(`Erro ao buscar ${endpoint}:`, error);
-      }
-    }
-    fetchData("usuarios", setUsuarios);
-    fetchData("livros", setLivros);
-    setFocus("usuarioId");
+  useEffect(() => {
+    async function fetchUsuarios() {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_URL_API}/usuarios`
+        );
+        setUsuarios(response.data as Usuario[]);
+      } catch (error) {
+        console.error(`Erro ao buscar usuarios:`, error);
+      }
+    }
 
-    const hoje = new Date().toISOString().split("T")[0];
-    setValue("dataRetirada", hoje);
-  }, [setFocus, setValue]);
+    async function fetchLivros() {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_URL_API}/livros`
+        );
+        setLivros(response.data as Livro[]);
+      } catch (error) {
+        console.error(`Erro ao buscar livros:`, error);
+      }
+    }
 
-  // 5. NOVO useEffect - Roda a lógica de verificação
+    fetchUsuarios();
+    fetchLivros();
+    setFocus("usuarioId");
+
+    const hoje = new Date().toISOString().split("T")[0];
+    setValue("dataRetirada", hoje);
+  }, [setFocus, setValue]);  // 5. NOVO useEffect - Roda a lógica de verificação
   useEffect(() => {
     // Calcula a data de entrega baseada na retirada
     const dataRetirada = new Date(watchedDataRetirada || new Date());

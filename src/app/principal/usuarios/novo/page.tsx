@@ -19,16 +19,9 @@ type Entradas = {
 };
 
 function NovoUsuario() {
-  const [usuarios, setUsuarios] = useState<UsuarioI[]>([]);
   const { register, handleSubmit, reset, setFocus } = useForm<Entradas>();
 
   useEffect(() => {
-    async function getUsuarios() {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL_API}/usuarios`);
-      const dados = await response.json();
-      setUsuarios(dados);
-    }
-    getUsuarios();
     setFocus("nome");
   }, [setFocus]);
 

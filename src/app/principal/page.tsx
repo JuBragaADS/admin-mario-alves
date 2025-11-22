@@ -22,13 +22,6 @@ export default function Principal() {
     getDadosGerais();
   }, []);
 
-  const cores = [
-    "red",
-    "blue",
-    "violet",
-    "green",
-  ];
-
   return (
     <div className="container mt-24 mx-auto p-4">
   

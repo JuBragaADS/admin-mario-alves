@@ -61,9 +61,9 @@ function CadLivros() {
         toast.success("Livro destacado com sucesso!!")
       }}
 
-      onDelete={(id: number) => {
+      onDelete={(_id: number) => {
         // Atualiza a lista de livros removendo o livro com o ID fornecido
-        setLivros(livros.filter((x) => x.id !== id));
+        setLivros(livros.filter((x) => x.id !== _id));
         toast.success("Livro removido com sucesso!!")
       }}
       livro={livro}
